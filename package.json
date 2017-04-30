@@ -1,6 +1,6 @@
 {
   "name": "brkn-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Yet another broken link checker CLI",
   "keywords": [
     "broken",
@@ -23,6 +23,7 @@
   "dependencies": {
     "brkn": "^1.0.0",
     "chalk": "^1.1.3",
+    "execa": "^0.6.3",
     "loading-indicator": "^2.0.0",
     "valid-url": "^1.0.9",
     "yargs": "^7.1.0"
@@ -32,5 +33,8 @@
   },
   "engines": {
     "node": ">= 6.10.2"
+  },
+  "devDependencies": {
+    "xo": "^0.18.1"
   }
 }
