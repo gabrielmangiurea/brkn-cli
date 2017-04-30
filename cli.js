@@ -6,7 +6,7 @@ const brkn = require('brkn');
 const chalk = require('chalk');
 const yargs = require('yargs');
 const isWebUri = require('valid-url').isWebUri;
-const eventEmitter = require('brkn/event-emitter');
+const events = require('brkn').events;
 
 const util = require('./util');
 const packageJSON = require('./package.json');
@@ -27,7 +27,7 @@ const argv = yargs
 					brkn(sources, argv.attr, util.parseBaseUrl(sources[0]), {verbose: argv.verbose});
 				} catch (err) {
 					setImmediate(() => {
-						eventEmitter.emit('error', err.message);
+						events.emit('error', err.message);
 					});
 				}
 			} else {
@@ -35,7 +35,7 @@ const argv = yargs
 					brkn(sources, argv.attr, argv.base, {verbose: argv.verbose});
 				} catch (err) {
 					setImmediate(() => {
-						eventEmitter.emit('error', err.message);
+						events.emit('error', err.message);
 					});
 				}
 			}
@@ -66,7 +66,7 @@ const argv = yargs
 	.version(packageJSON.version)
 	.argv;
 
-eventEmitter.on('error', error => {
+events.on('error', error => {
 	util.stopTimer();
 
 	if (error.payload) {
@@ -76,7 +76,7 @@ eventEmitter.on('error', error => {
 	}
 });
 
-eventEmitter.on('item', item => {
+events.on('item', item => {
 	if (item.broken) {
 		util.consoleLog(
 			chalk.cyan.bold('Scanned URL:'),
@@ -94,7 +94,7 @@ eventEmitter.on('item', item => {
 	}
 });
 
-eventEmitter.on('source', source => {
+events.on('source', source => {
 	const brokenUrls = source.brokenUrls;
 
 	if (brokenUrls.length > 0) {
@@ -108,7 +108,7 @@ eventEmitter.on('source', source => {
 	}
 });
 
-eventEmitter.on('end', brokenUrls => {
+events.on('end', brokenUrls => {
 	if (util.timerId) {
 		util.stopTimer();
 	}
