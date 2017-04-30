@@ -10,11 +10,6 @@ $ npm install --global brkn-cli
 ```
 
 
-## Prerequisites
-
-This package depends on [brkn](https://www.npmjs.com/package/brkn).
-
-
 ## Usage
 
 ```
@@ -36,7 +31,7 @@ $ brkn <url|file...> [--attr [html attribute...]] [--base <hostname (w/ protocol
 ## Examples
 ```
 $ brkn https://httpbin.org
-$ brkn ./fixtures/page1.html ./fixtures/page2.html --base "https://mywebsite.com"
+$ brkn https://mywebsite.com https://otherwebsite.org --verbose
 $ brkn ./fixtures/*.html --base "https://mywebsite.com" --verbose
 
 ```
@@ -44,7 +39,7 @@ $ brkn ./fixtures/*.html --base "https://mywebsite.com" --verbose
 
 ## Related
 
-- [brkn](https://www.npmjs.com/package/brkn) - API
+- [brkn](https://www.npmjs.com/package/brkn) - API for this module
 
 
 ## License

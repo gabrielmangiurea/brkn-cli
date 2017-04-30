@@ -59,7 +59,7 @@ const argv = yargs
 	})
 	.usage('Usage: \x0A\u00A0\u00A0$ brkn <url|file...> [--attr [html attribute...]] [--base <hostname (w/ protocol)>] [--verbose]')
 	.example('$ brkn https://httpbin.org')
-	.example('$ brkn ./fixtures/page1.html ./fixtures/page2.html --base "https://mywebsite.com"')
+	.example('$ brkn https://mywebsite.com https://otherwebsite.org --verbose')
 	.example('$ brkn ./fixtures/*.html --base "https://mywebsite.com" --verbose')
 	.help('help', 'Show this screen')
 	.epilog('MIT \u00A9 Gabriel Mangiurea')
