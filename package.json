@@ -1,6 +1,6 @@
 {
   "name": "brkn-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Yet another broken link checker CLI",
   "keywords": [
     "broken",
@@ -9,6 +9,9 @@
     "cli"
   ],
   "main": "cli.js",
+  "scripts": {
+    "test": "xo && ava test.js"
+  },
   "author": {
     "name": "Gabriel Mangiurea",
     "email": "mangiurea.gabriel@gmail.com",
@@ -28,13 +31,14 @@
     "valid-url": "^1.0.9",
     "yargs": "^7.1.0"
   },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "xo": "^0.18.1"
+  },
   "bin": {
     "brkn": "./cli.js"
   },
   "engines": {
     "node": ">= 6.10.2"
-  },
-  "devDependencies": {
-    "xo": "^0.18.1"
   }
 }
